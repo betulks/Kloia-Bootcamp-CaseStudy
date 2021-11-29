@@ -13,6 +13,9 @@ public class MyStepDefinitions {
     HomePage homePage = new HomePage();
     SearchResultPage searchResultPage = new SearchResultPage();
     SignInPage signInPage = new SignInPage();
+    MenuPage menuPage = new MenuPage();
+    FilterPage filterPage = new FilterPage();
+
 
     @Given("homepage is open")
     public void homepageIsOpen() {
@@ -78,5 +81,30 @@ public class MyStepDefinitions {
     @When("click password next button")
     public void clickNext2Button() {signInPage.setNext2Button();}
 
+    @And("click menu")
+    public void clickMenuButton() {menuPage.setMenuButton();}
 
+    @When("I choose submenu for Audio")
+    public void iChooseSubmenuForAudio() {menuPage.setAudioButton();}
+
+    @When("I choose submenu for Headphones")
+    public void iChooseSubmenuForHeadphones(){menuPage.setHeadphonesButton();}
+
+    @When("I choose submenu for Wireless Headphones")
+    public void iChooseSubmenuForWirelessHeadphones() {menuPage.setWirelessHeadphonesButton();}
+
+    @Then("verify successful wireless headphone page")
+    public void verifySuccessfulWirelessHeadphonePage() {menuPage.verifyWirelessHeadphonesText();}
+
+    @When("clickable filter input")
+    public void clickableFilterInput() {filterPage.setClickableInput();}
+
+    @When("write filter brands by {string}")
+    public void filterBrandsBy(String filterKey) {filterPage.setFilterBrand(filterKey); }
+
+    @Then("verify filter results are listed")
+    public void verifyFilterResultsAreListed() {filterPage.setVerifyResults();}
+
+    @When("click second product")
+    public void clickSecondProduct() {filterPage.setSecondProduct();}
 }

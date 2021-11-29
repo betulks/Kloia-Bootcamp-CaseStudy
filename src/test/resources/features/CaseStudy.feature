@@ -2,7 +2,8 @@ Feature: CaseStudy tests
 
   Background:
     Given homepage is open
-    And I close the pop up
+    #And I close the pop up
+
 
   @regression
   Scenario: verify page title and search result
@@ -31,8 +32,23 @@ Feature: CaseStudy tests
     When click mail next button
     When sign in with Google for password "*-testpassword-*"
     When click password next button
-    Given homepage is open
-    Then verify successful login
+
+  @regression
+   Scenario: go to wireless headphone
+    And click menu
+    When I choose submenu for Audio
+    When I choose submenu for Headphones
+    When I choose submenu for Wireless Headphones
+    Then verify successful wireless headphone page
+    When clickable filter input
+    When write filter brands by "Philips"
+    Then verify filter results are listed
+    When click second product
+
+
+
+
+
 
 
 
